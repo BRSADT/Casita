@@ -48,6 +48,8 @@ bo=(Button) findViewById(R.id.button);
 nom=(EditText)findViewById(R.id.Nombre);
         contra=(EditText)findViewById(R.id.contra);
 texto=(TextView) findViewById(R.id.txt);
+
+
 bo.setOnClickListener(new View.OnClickListener() {
     @Override
     public void onClick(View view) {
@@ -59,7 +61,7 @@ bo.setOnClickListener(new View.OnClickListener() {
             e.printStackTrace();
         }
 
-    //    Toast.makeText(getApplicationContext(),"boton" , Toast.LENGTH_SHORT).show();
+    //   Toast .makeText(getApplicationContext(),"boton" , Toast.LENGTH_SHORT).show();
 
     }});
     }
