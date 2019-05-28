@@ -25,7 +25,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".MainActivity" />
-        <activity android:name=".MenuPrincipal"></activity>
+        <activity android:name=".MenuPrincipal" />
+        <activity android:name=".menuPAdministrador"></activity>
     </application>
 
 </manifest>
