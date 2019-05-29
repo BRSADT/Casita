@@ -9,16 +9,26 @@ String apellido;
 String administrador;
 String edad;
 String usuario;
+String contra;
 
     public datosUsuario() {
     }
 
-    public datosUsuario(String nombre, String apellido, String administrador, String edad,String usuario) {
+    public datosUsuario(String nombre, String apellido, String administrador, String edad,String usuario,String contra) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.administrador = administrador;
         this.edad = edad;
         this.usuario=usuario;
+        this.contra=contra;
+    }
+
+    public String getContra() {
+        return contra;
+    }
+
+    public void setContra(String contra) {
+        this.contra = contra;
     }
 
     public String getUsuario() {

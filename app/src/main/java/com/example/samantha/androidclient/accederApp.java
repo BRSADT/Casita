@@ -25,7 +25,7 @@ public class accederApp extends AppCompatActivity   implements Serializable  {
     StringBuilder texto= new StringBuilder();
  //   String hostName = "192.168.43.183";
    //String hostName = "192.168.1.66";
-    String hostName = "192.168.1.131";
+    String hostName = "192.168.1.66";
     datosUsuario us;
     int portNumber = 4444;
     EditText inputUsuario,inputPassword;
@@ -37,9 +37,7 @@ public class accederApp extends AppCompatActivity   implements Serializable  {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_acceder_app);
-
             us = new datosUsuario();
-
         btnacceder=(Button) findViewById(R.id.btnAcceder);
         inputUsuario=(EditText)findViewById(R.id.InputUsuario);
         inputPassword=(EditText)findViewById(R.id.InputPass);
@@ -53,69 +51,9 @@ public class accederApp extends AppCompatActivity   implements Serializable  {
             StrPassword=inputPassword.getText().toString();
             if(StrUsuario.length()>0&&StrPassword.length()>0) { //se ingresara a la BDD Para verificar los campos
                 new Hilito().execute();
-
-
-               /* new Thread(new Runnable()
-                {
-                    public void run()
-                    {
-                    try {
-                          Socket kkSocket = new Socket(hostName, portNumber);
-                         PrintWriter out =
-                         new PrintWriter(kkSocket.getOutputStream(), true);
-                        BufferedReader in =
-                           new BufferedReader(
-                               new InputStreamReader(kkSocket.getInputStream()));
-                        Instruccion="Verificacion";
-                        ip=kkSocket.getLocalAddress().toString();
-                        enviar=Instruccion+";-;"+ip+";-;"+StrUsuario+";-;"+StrPassword;
-                        out.println(enviar);
-                        Log.i("aqui1", textof );
-                        while((res = in.readLine()) != null) {
-                            textof=textof+res;
-                            kkSocket.close();
-                        }
-                        Log.i("aqui2", textof );
-                    } catch (UnknownHostException e1) {
-                        e1.printStackTrace();
-                 } catch (IOException e1) {
-                        e1.printStackTrace();
-                    }
-                prueba.post(new Runnable()
-                        {
-                        public void run() {
-                            Log.i("cadena", textof );
-                            if(textof.length()<=4){
-                                Toast.makeText(getApplicationContext(), "Datos incorrectos", Toast.LENGTH_SHORT).show();
-
-                            }
-                            else{
-                                String[] datos = textof.split(";");
-                                us.setAdministrador(datos[3]);
-                                us.setUsuario(datos[0]);
-                                us.setNombre(datos[1]);
-                                us.setApellido(datos[2]);
-                                if(us.getAdministrador().equals("1")){//aqui se ira al menu administrador
-
-                                    Intent i=new Intent(accederApp.this,menuPAdministrador.class);
-                                    i.putExtra("intUsuarios",(Serializable)us);
-                                    startActivity(i);
-                                }else{
-                                    Intent i=new Intent(accederApp.this,MenuPrincipal.class);
-                                    i.putExtra("intUsuarios",(Serializable)us);
-                                    startActivity(i);
-
-                                }
-                                //prueba.setText(textof);
-                            }
-                        }
-                        });
-                    }
-                 }).start();*/
-
-            } //FIN CONDICION
-        } //fin ONCLIC
-    });//fin clic
+            }
+        }
+    });
 
 
 
@@ -127,9 +65,10 @@ public class accederApp extends AppCompatActivity   implements Serializable  {
     private class Hilito extends AsyncTask<Void, Void, String> implements Serializable  {
         @Override
         protected String doInBackground(Void... params) {
+            Conexion con=new Conexion();
             Log.i("inicio", "inicio" );
             try {
-                Socket kkSocket = new Socket(hostName, portNumber);
+                Socket kkSocket = new Socket(con.getHostName(),con.getPortNumber());
                 PrintWriter out =
                         new PrintWriter(kkSocket.getOutputStream(), true);
                 BufferedReader in =
@@ -137,7 +76,7 @@ public class accederApp extends AppCompatActivity   implements Serializable  {
                                 new InputStreamReader(kkSocket.getInputStream()));
                 Instruccion="Verificacion";
                 ip=kkSocket.getLocalAddress().toString();
-                enviar=Instruccion+";-;"+ip+";-;"+StrUsuario+";-;"+StrPassword;
+                enviar=Instruccion+";"+ip+";"+StrUsuario+";"+StrPassword;
                 out.println(enviar);
                 Log.i("aqui1", textof );
                 while((res = in.readLine()) != null) {
@@ -176,13 +115,9 @@ public class accederApp extends AppCompatActivity   implements Serializable  {
                     startActivity(i);
 
                 }
-            }
-
-
+              }
+        }
     }
-
-
-}
 
 }
 

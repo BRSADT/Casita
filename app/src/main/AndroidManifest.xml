@@ -26,7 +26,8 @@
         </activity>
         <activity android:name=".MainActivity" />
         <activity android:name=".MenuPrincipal" />
-        <activity android:name=".menuPAdministrador"></activity>
+        <activity android:name=".menuPAdministrador" />
+        <activity android:name=".AgregarUsuarios"></activity>
     </application>
 
 </manifest>

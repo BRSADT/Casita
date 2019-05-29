@@ -27,7 +27,7 @@ datosUsuario us;
     }
     @Override
     public void onBackPressed() {
-        Toast.makeText(getApplicationContext(), "rEGRESO", Toast.LENGTH_SHORT).show();
+
 
         Intent i = new Intent(MenuPrincipal.this, accederApp.class);
 

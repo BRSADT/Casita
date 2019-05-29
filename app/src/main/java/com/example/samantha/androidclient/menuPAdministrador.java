@@ -28,6 +28,10 @@ public class menuPAdministrador extends AppCompatActivity   implements Serializa
             @Override
             public void onClick(View view) {
                 //se ira a agregar usuarios
+                Intent i = new Intent(menuPAdministrador.this, AgregarUsuarios.class);
+                i.putExtra("intUsuarios", (Serializable) us);
+                startActivity(i);
+
             }
         });
     }
