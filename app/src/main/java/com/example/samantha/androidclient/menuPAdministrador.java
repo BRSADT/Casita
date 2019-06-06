@@ -12,7 +12,7 @@ import java.io.Serializable;
 
 public class menuPAdministrador extends AppCompatActivity   implements Serializable {
     TextView NombreUs;
-    Button btnAgregar;
+    Button btnAgregar,btnHistorial;
     datosUsuario us;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,6 +21,8 @@ public class menuPAdministrador extends AppCompatActivity   implements Serializa
         NombreUs=(TextView) findViewById(R.id.NombreUS);
         us= (datosUsuario) getIntent().getSerializableExtra("intUsuarios"); //OBTIENES datos del usuario actual;
         NombreUs.setText(us.nombre);
+        btnAgregar=(Button)findViewById(R.id.btnAgregar);
+        btnHistorial=(Button) findViewById(R.id.btnHistorial);
         btnAgregar=(Button)findViewById(R.id.btnAgregar);
         btnAgregar.setOnClickListener(new View.OnClickListener() {
 
@@ -34,6 +36,20 @@ public class menuPAdministrador extends AppCompatActivity   implements Serializa
 
             }
         });
+
+        btnHistorial.setOnClickListener(new View.OnClickListener() {
+
+
+            @Override
+            public void onClick(View view) {
+                //se ira a agregar usuarios
+                Intent i = new Intent(menuPAdministrador.this, Historial.class);
+                i.putExtra("intUsuarios", (Serializable) us);
+                startActivity(i);
+
+            }
+        });
+
     }
     @Override
     public void onBackPressed() {

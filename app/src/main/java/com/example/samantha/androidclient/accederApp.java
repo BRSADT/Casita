@@ -25,7 +25,7 @@ public class accederApp extends AppCompatActivity   implements Serializable  {
     StringBuilder texto= new StringBuilder();
  //   String hostName = "192.168.43.183";
    //String hostName = "192.168.1.66";
-    String hostName = "192.168.1.65";
+    String hostName = "192.168.43.183";
     datosUsuario us;
     int portNumber = 4444;
     EditText inputUsuario,inputPassword;

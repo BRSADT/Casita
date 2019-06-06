@@ -24,4 +24,16 @@
         android:layout_height="wrap_content"
         android:text="Habitantes" />
 
+    <Button
+        android:id="@+id/btnHistorial"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Historial" />
+
+    <Button
+        android:id="@+id/CongPer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Configuracion Personalizada" />
+
 </LinearLayout>

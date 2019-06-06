@@ -29,11 +29,10 @@
         <activity android:name=".menuPAdministrador" />
         <activity android:name=".AgregarUsuarios" />
         <activity android:name=".Habitantes" />
-        <activity android:name=".Historial"
-            android:screenOrientation="portrait"
-            >
-
-        </activity>
+        <activity
+            android:name=".Historial"
+            android:screenOrientation="landscape"></activity>
+        <activity android:name=".ConfiguracionPersonalizada"></activity>
     </application>
 
 </manifest>
