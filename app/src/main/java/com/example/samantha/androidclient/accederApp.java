@@ -25,7 +25,7 @@ public class accederApp extends AppCompatActivity   implements Serializable  {
     StringBuilder texto= new StringBuilder();
  //   String hostName = "192.168.43.183";
    //String hostName = "192.168.1.66";
-    String hostName = "192.168.1.66";
+    String hostName = "192.168.1.65";
     datosUsuario us;
     int portNumber = 4444;
     EditText inputUsuario,inputPassword;
@@ -66,7 +66,7 @@ public class accederApp extends AppCompatActivity   implements Serializable  {
         @Override
         protected String doInBackground(Void... params) {
             Conexion con=new Conexion();
-            Log.i("inicio", "inicio" );
+             Log.i("inicio", "inicio" );
             try {
                 Socket kkSocket = new Socket(con.getHostName(),con.getPortNumber());
                 PrintWriter out =
@@ -79,7 +79,7 @@ public class accederApp extends AppCompatActivity   implements Serializable  {
                 enviar=Instruccion+";"+ip+";"+StrUsuario+";"+StrPassword;
                 out.println(enviar);
                 Log.i("aqui1", textof );
-                while((res = in.readLine()) != null) {
+                while((res = in.readLine()) != null) { //Llega la informacion
                     textof=textof+res;
                     kkSocket.close();
                 }

@@ -1,12 +1,14 @@
 package com.example.samantha.androidclient;
 
-public class Conexion {
-    int portNumber = 4444;
-    String hostName = "192.168.1.66";
+import java.io.Serializable;
+
+public class Conexion implements Serializable {
+    int portNumber;
+    String hostName;
 
     Conexion(){
         portNumber=4444;
-        hostName="192.168.1.66";
+        hostName="192.168.1.65";
     }
     public int getPortNumber() {
         return portNumber;

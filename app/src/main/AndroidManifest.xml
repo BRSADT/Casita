@@ -27,7 +27,13 @@
         <activity android:name=".MainActivity" />
         <activity android:name=".MenuPrincipal" />
         <activity android:name=".menuPAdministrador" />
-        <activity android:name=".AgregarUsuarios"></activity>
+        <activity android:name=".AgregarUsuarios" />
+        <activity android:name=".Habitantes" />
+        <activity android:name=".Historial"
+            android:screenOrientation="portrait"
+            >
+
+        </activity>
     </application>
 
 </manifest>
