@@ -27,10 +27,10 @@ public class AgregarUsuarios extends AppCompatActivity implements Serializable {
     Button agregar;
     datosUsuario us, usuarioAgregar;
     String enviar = "", Instruccion = "", ip = "", regresar = "", res = "";
-    ArrayAdapter adapterPrioridad;
+
     List listaPrioridad;
     Spinner spin;
-
+    ArrayAdapter adapterPrioridad;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

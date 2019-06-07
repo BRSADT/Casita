@@ -12,18 +12,32 @@ import java.io.Serializable;
 
 public class menuPAdministrador extends AppCompatActivity   implements Serializable {
     TextView NombreUs;
-    Button btnAgregar,btnHistorial;
+    Button btnAgregar,btnHistorial,btnConfiguracion;
     datosUsuario us;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu_padministrador);
         NombreUs=(TextView) findViewById(R.id.NombreUS);
+
         us= (datosUsuario) getIntent().getSerializableExtra("intUsuarios"); //OBTIENES datos del usuario actual;
         NombreUs.setText(us.nombre);
         btnAgregar=(Button)findViewById(R.id.btnAgregar);
         btnHistorial=(Button) findViewById(R.id.btnHistorial);
         btnAgregar=(Button)findViewById(R.id.btnAgregar);
+        btnConfiguracion=(Button)findViewById(R.id.CongPer);
+        btnConfiguracion.setOnClickListener(new View.OnClickListener() {
+
+
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(menuPAdministrador.this, ConfiguracionPersonalizada.class);
+                i.putExtra("intUsuarios", (Serializable) us);
+                startActivity(i);
+
+            }});
+
+
         btnAgregar.setOnClickListener(new View.OnClickListener() {
 
 

@@ -25,7 +25,7 @@ public class accederApp extends AppCompatActivity   implements Serializable  {
     StringBuilder texto= new StringBuilder();
  //   String hostName = "192.168.43.183";
    //String hostName = "192.168.1.66";
-    String hostName = "192.168.43.183";
+    String hostName = "192.168.1.65";
     datosUsuario us;
     int portNumber = 4444;
     EditText inputUsuario,inputPassword;
@@ -33,10 +33,18 @@ public class accederApp extends AppCompatActivity   implements Serializable  {
     Button btnacceder;
     String StrUsuario="",StrPassword="",Instruccion="",ip="",enviar="",res="";
     TextView prueba;
+ Intent intent = new Intent(this,ServicioPrueba.class);
+    ServicioPrueba serv;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_acceder_app);
+
+        serv=new ServicioPrueba();
+
             us = new datosUsuario();
         btnacceder=(Button) findViewById(R.id.btnAcceder);
         inputUsuario=(EditText)findViewById(R.id.InputUsuario);
@@ -47,11 +55,15 @@ public class accederApp extends AppCompatActivity   implements Serializable  {
          btnacceder.setOnClickListener(new View.OnClickListener() {
         @Override
         public void onClick(View view) {
+            Log.i("Servicio", "clic para servicio");
+            startService(intent);
+            Log.i("Servicio", "despues");
+            /*
             StrUsuario=inputUsuario.getText().toString();
             StrPassword=inputPassword.getText().toString();
             if(StrUsuario.length()>0&&StrPassword.length()>0) { //se ingresara a la BDD Para verificar los campos
                 new Hilito().execute();
-            }
+            }*/
         }
     });
 

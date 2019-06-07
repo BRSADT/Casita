@@ -14,7 +14,7 @@
         android:orientation="horizontal">
 
         <Switch
-            android:id="@+id/switch3"
+            android:id="@+id/swSala"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -23,7 +23,7 @@
             tools:layout_editor_absoluteY="148dp" />
 
         <Switch
-            android:id="@+id/switch2"
+            android:id="@+id/swVentilador"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -32,7 +32,7 @@
             tools:layout_editor_absoluteY="34dp" />
 
         <Switch
-            android:id="@+id/switch1"
+            android:id="@+id/swCocina"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -47,15 +47,22 @@
         android:layout_weight="1"
         android:orientation="horizontal">
 
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Cuarto1" />
+
         <Switch
-            android:id="@+id/switch5"
+            android:id="@+id/swFoco2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="Foco2" />
 
         <Switch
-            android:id="@+id/switch4"
+            android:id="@+id/swFoco1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -71,7 +78,7 @@
         android:orientation="horizontal">
 
         <Switch
-            android:id="@+id/switch6"
+            android:id="@+id/swFocoCuarto2"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -92,9 +99,16 @@
         android:orientation="horizontal">
 
         <Spinner
-            android:id="@+id/spinner2"
+            android:id="@+id/spinnerTonos"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
+            android:layout_height="wrap_content"
             android:layout_weight="1" />
     </LinearLayout>
+
+    <Button
+        android:id="@+id/btnGuardarConf"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:text="Guardar" />
 </LinearLayout>

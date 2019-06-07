@@ -46,7 +46,21 @@ public class Historial extends AppCompatActivity implements Serializable {
 
 
     }
+    @Override
+    public void onBackPressed() {
+        if (us.getAdministrador().equals("1")){
+            Intent i = new Intent(Historial.this, menuPAdministrador.class);
+            i.putExtra("intUsuarios", (Serializable) us);
+            startActivity(i);
+        }else{
+            Intent i = new Intent(Historial.this, MenuPrincipal.class);
+            i.putExtra("intUsuarios", (Serializable) us);
+            startActivity(i);
 
+        }
+
+
+    }
 
 
     private class HilitoAgregar extends AsyncTask<Void, Void, String> implements Serializable {

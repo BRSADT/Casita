@@ -33,6 +33,11 @@
             android:name=".Historial"
             android:screenOrientation="landscape"></activity>
         <activity android:name=".ConfiguracionPersonalizada"></activity>
+
+
+        <service android:name="ServicioPrueba"></service>
+
+
     </application>
 
 </manifest>
