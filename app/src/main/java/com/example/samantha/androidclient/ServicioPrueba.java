@@ -1,64 +1,114 @@
 package com.example.samantha.androidclient;
 import android.app.IntentService;
 import android.app.Notification;
+import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.app.Service;
 import android.app.TaskStackBuilder;
 import android.content.Intent;
+import android.os.Build;
 import android.os.IBinder;
 import android.support.annotation.Nullable;
 import android.support.v4.app.NotificationCompat;
 import android.support.v4.app.NotificationManagerCompat;
 import android.util.Log;
 import android.content.Context;
+import android.view.View;
+
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.Timer;
 import java.util.TimerTask;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 import static android.app.NotificationChannel.DEFAULT_CHANNEL_ID;
+import static com.example.samantha.androidclient.APP.CHANNEL_1_ID;
+import static com.example.samantha.androidclient.APP.CHANNEL_2_ID;
 
 public class ServicioPrueba extends Service {
-    private static final String TAG = ServicioPrueba.class.getSimpleName();
-    public static final int NOTIFICATION_ID = 234;
-        private Thread workerThread = null;
+    private static final int PORT = 6666;
+    private ServerSocket server = null;
+    int portNumber = 5234;
 
+    boolean listening = true;
+
+    private ExecutorService mExecutorService = null; // thread pool
+    private static final String TAG = ServicioPrueba.class.getSimpleName();
+
+        private Thread workerThread = null;
+    private NotificationManagerCompat notificationManager;
 
     @Override
     public void onCreate() {
         super.onCreate();
         Log.i("Servicio", "Creating service");
+        if (Build.VERSION.SDK_INT >= 26) {
+            String CHANNEL_ID = "my_channel_01";
+            NotificationChannel channel = new NotificationChannel(CHANNEL_ID,
+                    "Channel human readable title",
+                    NotificationManager.IMPORTANCE_DEFAULT);
+
+            ((NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE)).createNotificationChannel(channel);
+
+            Notification notification = new NotificationCompat.Builder(this, CHANNEL_ID)
+                    .setContentTitle("")
+                    .setContentText("").build();
+
+            startForeground(1, notification);
+        }
+
+
     }
 
 
 
-        @Override
+
+
+    @Override
         public int onStartCommand(Intent intent, int flags, int startId) {
+
             Log.i("Servicio", "Entro A Hilo");
+
+
             super.onStartCommand(intent, flags, startId);
-         /*   if(workerThread == null || !workerThread.isAlive()){
-                workerThread = new Thread(new Runnable() {
-                    public void run() {
+        new Thread(new Runnable() {
 
-                        try {
-                            Log.i("Servicio", "Espera");
-                            workerThread.wait(10000);
-createNotification();
-                            Log.i("Servicio", "Hola");
+            @Override
+
+            public void run() {
+
+                try (ServerSocket serverSocket = new ServerSocket(portNumber))
+                {
+                    while (listening) {
 
 
-                        } catch (InterruptedException e) {
-                            e.printStackTrace();
-                        }
+                        new KKMultiServerThread(serverSocket.accept()).start();
+                        Log.i("Servicio","entro un cliente");
+                        notificationManager = NotificationManagerCompat.from(ServicioPrueba.this);
+                        sendOnChannel1();
                     }
-                });
-                workerThread.start();
-                    }*/
+                } catch (IOException e) {
+                    System.err.println("Could not listen on port " + portNumber);
+
+                }
+
+            }
+
+        }).start();
+
+
+
+
+
+
         return START_STICKY;
                 }
 
@@ -68,43 +118,29 @@ createNotification();
         return null;
     }
 
-    public void createNotification(){
 
-        Intent intent = new Intent(this, MainActivity.class);
 
-        TaskStackBuilder taskStackBuilder = TaskStackBuilder.create(this);
-        taskStackBuilder.addParentStack(MainActivity.class);
-        taskStackBuilder.addNextIntent(intent);
+    public void sendOnChannel1() {
+        String title = "AAHHHHH";
+        String message = "El cielo se cae";
 
-        PendingIntent pendingIntent = taskStackBuilder.
-                getPendingIntent(0, PendingIntent.FLAG_UPDATE_CURRENT);
-
-        Notification notification = new Notification.Builder(this)
-                .setSmallIcon(R.mipmap.ic_launcher)
-                .setContentTitle(getString(R.string.app_name))
-                .setContentText("Sample Notification")
-                .setAutoCancel(true)
-                .setPriority(Notification.PRIORITY_MAX)
-                .setDefaults(Notification.DEFAULT_VIBRATE)
-                .setContentIntent(pendingIntent)
+        Notification notification = new NotificationCompat.Builder(ServicioPrueba.this, CHANNEL_1_ID)
+                .setSmallIcon(R.drawable.firee)
+                .setContentTitle(title)
+                .setContentText(message)
+                .setPriority(NotificationCompat.PRIORITY_HIGH)
+                .setCategory(NotificationCompat.CATEGORY_MESSAGE)
                 .build();
 
-        NotificationManager notificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
-        notificationManager.notify(NOTIFICATION_ID, notification);
-
+        notificationManager.notify(30, notification);
     }
 
-
 }
-/*
 
 
  class KKMultiServerThread extends Thread {
 
-    public  void not(){
 
-
-    }
 
      private Socket socket = null;
 
@@ -146,4 +182,20 @@ createNotification();
 
 
      }
- }*/
+ }
+
+
+
+
+
+
+
+    /**
+
+     * Send message to clients
+
+     */
+
+
+
+

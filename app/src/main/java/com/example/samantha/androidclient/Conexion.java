@@ -8,7 +8,7 @@ public class Conexion implements Serializable {
 
     Conexion(){
         portNumber=4444;
-        hostName="192.168.43.183";
+        hostName="192.168.1.65";
     }
     public int getPortNumber() {
         return portNumber;
