@@ -1,75 +1,133 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/linearLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
+    android:background="@drawable/fondito"
     tools:context=".AgregarUsuarios">
 
     <EditText
         android:id="@+id/inUsuario"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="42dp"
         android:ems="10"
+        android:fontFamily="casual"
         android:hint="Usuario"
-        android:inputType="textPersonName" />
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toTopOf="@+id/textView5"
+        app:layout_constraintEnd_toStartOf="@+id/inPassword"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/inApellido" />
 
     <EditText
         android:id="@+id/inNombre"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="19dp"
         android:ems="10"
+        android:fontFamily="casual"
         android:hint="Nombre"
-        android:inputType="textPersonName" />
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toTopOf="@+id/inApellido"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView6" />
 
     <EditText
         android:id="@+id/inApellido"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="30dp"
         android:ems="10"
+        android:fontFamily="casual"
         android:hint="Apellido"
-        android:inputType="textPersonName" />
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toTopOf="@+id/inUsuario"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/inNombre" />
 
     <EditText
         android:id="@+id/inPassword"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
+        android:layout_width="0dp"
+        android:layout_height="46dp"
+        android:layout_marginEnd="21dp"
         android:ems="10"
+        android:fontFamily="casual"
         android:hint="Contraseña"
-        android:inputType="textPersonName" />
+        android:inputType="textPersonName"
+        app:layout_constraintBaseline_toBaselineOf="@+id/inUsuario"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/inUsuario" />
 
     <TextView
         android:id="@+id/textView5"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:text="Prioridad" />
+        android:layout_width="237dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="31dp"
+        android:fontFamily="casual"
+        android:text="Prioridad"
+        app:layout_constraintBottom_toTopOf="@+id/spinner"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/inUsuario" />
 
     <Spinner
         android:id="@+id/spinner"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1" />
+        android:layout_width="237dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="36dp"
+        app:layout_constraintBottom_toTopOf="@+id/inRelacion"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView5" />
 
     <EditText
         android:id="@+id/inRelacion"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
+        android:layout_width="240dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="43dp"
         android:ems="10"
+        android:fontFamily="casual"
         android:hint="Relacion"
-        android:inputType="textPersonName" />
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toTopOf="@+id/btnAgregar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/spinner" />
 
     <Button
         android:id="@+id/btnAgregar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="68dp"
+        android:layout_marginBottom="99dp"
+        android:fontFamily="casual"
         android:text="Agregar"
-        tools:layout_editor_absoluteX="136dp"
-        tools:layout_editor_absoluteY="438dp" />
-</LinearLayout>
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/inRelacion"
+        app:layout_constraintTop_toBottomOf="@+id/inRelacion" />
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="237dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="29dp"
+        android:fontFamily="casual"
+        android:text="AGREGAR USUARIO"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/inNombre"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+</android.support.constraint.ConstraintLayout>

@@ -4,9 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/md_black_1000_10"
-    android:orientation="vertical"
-    >
+    android:background="@drawable/fondito"
+    android:orientation="vertical">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -19,6 +18,7 @@
             android:id="@+id/textView2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:fontFamily="casual"
             android:text="Historial"
             android:textAlignment="center"
             android:textSize="25dp" />

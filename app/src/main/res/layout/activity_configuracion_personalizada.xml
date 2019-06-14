@@ -1,114 +1,229 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/linearLayout4"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
+    android:background="@drawable/fondito"
     tools:context=".ConfiguracionPersonalizada">
 
-    <LinearLayout
-        android:layout_width="match_parent"
+
+    <TextView
+        android:id="@+id/textView7"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginEnd="22dp"
+        android:layout_marginBottom="5dp"
+        android:fontFamily="casual"
+        android:text="Cuarto 1"
+        app:layout_constraintBottom_toTopOf="@+id/swFoco1"
+        app:layout_constraintEnd_toEndOf="@+id/swFoco2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView7" />
+
+    <Switch
+        android:id="@+id/swSala"
+        android:layout_width="0dp"
+        android:layout_height="27dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="38dp"
+        android:layout_marginBottom="28dp"
+        android:fontFamily="casual"
+        android:text="Sala"
+        app:layout_constraintBottom_toTopOf="@+id/imageView8"
+        app:layout_constraintEnd_toStartOf="@+id/imageView9"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Switch
+        android:id="@+id/swVentilador"
+        android:layout_width="110dp"
+        android:layout_height="30dp"
+        android:layout_marginEnd="28dp"
+        android:layout_marginBottom="72dp"
+        android:fontFamily="casual"
+        android:text="Ventilador"
+        app:layout_constraintBottom_toTopOf="@+id/imageView7"
+        app:layout_constraintEnd_toStartOf="@+id/swCocina"
+        app:layout_constraintTop_toBottomOf="@+id/textView8" />
+
+    <Switch
+        android:id="@+id/swCocina"
+        android:layout_width="94dp"
+        android:layout_height="28dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="20dp"
+        android:fontFamily="casual"
+        android:text="Cocina"
+        app:layout_constraintBottom_toTopOf="@+id/imageView7"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/imageView9" />
+
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="13dp"
+        android:layout_marginEnd="6dp"
+        android:layout_marginBottom="11dp"
+        android:fontFamily="casual"
+        android:text="Cuarto 2"
+        app:layout_constraintBottom_toTopOf="@+id/swFocoCuarto2"
+        app:layout_constraintEnd_toEndOf="@+id/imageView4"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView3" />
+
+    <Switch
+        android:id="@+id/swFoco2"
+        android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_weight="1"
-        android:orientation="horizontal">
+        android:layout_marginStart="46dp"
+        android:layout_marginEnd="59dp"
+        android:fontFamily="casual"
+        android:text="Foco2"
+        app:layout_constraintBottom_toBottomOf="@+id/swFoco1"
+        app:layout_constraintEnd_toStartOf="@+id/swFoco1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/swFoco1" />
 
-        <Switch
-            android:id="@+id/swSala"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Sala"
-            tools:layout_editor_absoluteX="39dp"
-            tools:layout_editor_absoluteY="148dp" />
-
-        <Switch
-            android:id="@+id/swVentilador"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Ventilador"
-            tools:layout_editor_absoluteX="168dp"
-            tools:layout_editor_absoluteY="34dp" />
-
-        <Switch
-            android:id="@+id/swCocina"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Cocina"
-            tools:layout_editor_absoluteX="39dp"
-            tools:layout_editor_absoluteY="35dp" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
+    <Switch
+        android:id="@+id/swFoco1"
+        android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_weight="1"
-        android:orientation="horizontal">
+        android:layout_marginEnd="78dp"
+        android:layout_marginBottom="14dp"
+        android:fontFamily="casual"
+        android:text="Foco 1"
+        app:layout_constraintBottom_toTopOf="@+id/imageView3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/swFoco2"
+        app:layout_constraintTop_toBottomOf="@+id/textView7" />
 
-        <TextView
-            android:id="@+id/textView4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Cuarto1" />
 
-        <Switch
-            android:id="@+id/swFoco2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Foco2" />
-
-        <Switch
-            android:id="@+id/swFoco1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Foco 1"
-            tools:layout_editor_absoluteX="180dp"
-            tools:layout_editor_absoluteY="147dp" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
+    <Switch
+        android:id="@+id/swFocoCuarto2"
+        android:layout_width="149dp"
         android:layout_height="0dp"
-        android:layout_weight="1"
-        android:orientation="horizontal">
+        android:fontFamily="casual"
+        android:text="Foco cuarto2"
+        app:layout_constraintBottom_toTopOf="@+id/imageView2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.568"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView4" />
 
-        <Switch
-            android:id="@+id/swFocoCuarto2"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Foco cuarto2" />
 
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:orientation="horizontal"></LinearLayout>
+    <Spinner
+        android:id="@+id/spinnerTonos"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="15dp"
+        app:layout_constraintBottom_toTopOf="@+id/btnGuardarConf"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
 
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:orientation="horizontal">
-
-        <Spinner
-            android:id="@+id/spinnerTonos"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1" />
-    </LinearLayout>
 
     <Button
         android:id="@+id/btnGuardarConf"
-        android:layout_width="match_parent"
+        android:layout_width="134dp"
         android:layout_height="0dp"
-        android:layout_weight="1"
-        android:text="Guardar" />
-</LinearLayout>
+        android:layout_marginBottom="51dp"
+        android:fontFamily="casual"
+        android:text="Guardar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/spinnerTonos" />
+
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="43dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="42dp"
+        android:fontFamily="casual"
+        android:text="CONFIGURACION PERSONALIZADA"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/swVentilador"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginBottom="6dp"
+        app:layout_constraintBottom_toTopOf="@+id/spinnerTonos"
+        app:layout_constraintEnd_toStartOf="@+id/swCocina"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/imageView4"
+        app:layout_constraintTop_toBottomOf="@+id/swFocoCuarto2"
+        app:srcCompat="@drawable/lampara" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginEnd="94dp"
+        android:layout_marginBottom="3dp"
+        app:layout_constraintBottom_toTopOf="@+id/textView4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/imageView4"
+        app:layout_constraintTop_toBottomOf="@+id/swFoco1"
+        app:srcCompat="@drawable/lampara" />
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="72dp"
+        android:layout_marginEnd="92dp"
+        app:layout_constraintBottom_toTopOf="@+id/textView4"
+        app:layout_constraintEnd_toStartOf="@+id/imageView3"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/imageView3"
+        app:srcCompat="@drawable/cama" />
+
+    <ImageView
+        android:id="@+id/imageView7"
+        android:layout_width="86dp"
+        android:layout_height="65dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="18dp"
+        app:layout_constraintBottom_toTopOf="@+id/textView7"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/swVentilador"
+        app:srcCompat="@drawable/refrigerador" />
+
+    <ImageView
+        android:id="@+id/imageView8"
+        android:layout_width="84dp"
+        android:layout_height="70dp"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="107dp"
+        android:layout_marginBottom="107dp"
+        app:layout_constraintBottom_toTopOf="@+id/imageView4"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/swVentilador"
+        app:srcCompat="@drawable/sillon" />
+
+    <ImageView
+        android:id="@+id/imageView9"
+        android:layout_width="127dp"
+        android:layout_height="69dp"
+        android:layout_marginTop="28dp"
+        android:layout_marginEnd="18dp"
+        app:layout_constraintEnd_toStartOf="@+id/swCocina"
+        app:layout_constraintStart_toEndOf="@+id/swSala"
+        app:layout_constraintTop_toBottomOf="@+id/swVentilador"
+        app:srcCompat="@drawable/venti" />
+
+</android.support.constraint.ConstraintLayout>
